@@ -7,8 +7,8 @@ use Schranz\Search\SEAL\Schema\Index;
 final class Search
 {
     /**
-     * @param array<string, Index>
-     * @param object[]
+     * @param array<string, Index> $indexes
+     * @param object[] $filters
      */
     public function __construct(
         public readonly array $indexes = [],

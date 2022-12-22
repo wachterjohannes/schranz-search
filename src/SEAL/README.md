@@ -55,6 +55,7 @@ $document = [
     ],
     'tags' => ['Tech', 'UI'],
     'categoryIds' => [1, 2],
+    'published' => false,
 ];
 ```
 
@@ -91,7 +92,7 @@ use Schranz\Search\SEAL\Schema\Schema;
 $fields = [
     'id' => new Field\IdentifierField('id'),
     'title' => new Field\TextField('title'),
-    'title.raw' => new Field\TextField('title'),
+    'title.raw' => new Field\KeywordField('title'),
     'article' => new Field\TextField('article'),
     'blocks' => new Field\TypedField('blocks', 'type', [
         'text' => [
@@ -101,7 +102,7 @@ $fields = [
         ],
         'embed' => [
             'title' => new Field\TextField('title'),
-            'media' => new Field\TextField('media'),
+            'media' => new Field\IntegerField('media'),
         ],
     ], multiple: true),
     'created' => new Field\DateTimeField('created'),
@@ -111,8 +112,9 @@ $fields = [
         'email' => new Field\TextField('email'),
         'text' => new Field\TextField('title'),
     ], multiple: true),
-    'tags' => new Field\TextField('tags', multiple: true),
+    'tags' => new Field\KeywordField('tags', multiple: true),
     'categoryIds' => new Field\IntegerField('categoryIds', multiple: true),
+    'published' => new Field\BooleanField('published'),
 ];
 
 $prefix = 'test_'; // to avoid conflicts the indexes can be prefixed

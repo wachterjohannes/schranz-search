@@ -15,6 +15,11 @@ enum FieldType
     case TEXT;
 
     /**
+     * Type to store keywords, options can maybe use to specify it more specific.
+     */
+    case KEYWORD;
+
+    /**
      * Type to store true or false flags.
      */
     case BOOLEAN;

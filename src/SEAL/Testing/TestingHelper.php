@@ -18,34 +18,34 @@ class TestingHelper
     {
         $complexFields = [
             'id' => new Field\IdentifierField('id'),
-            'title' => new Field\TextField('title'),
-            'title.raw' => new Field\TextField('title'),
-            'article' => new Field\TextField('article'),
+            'title' => new Field\StringField('title'),
+            'title.raw' => new Field\StringField('title'),
+            'article' => new Field\StringField('article'),
             'blocks' => new Field\TypedField('blocks', 'type', [
                 'text' => [
-                    'title' => new Field\TextField('title'),
-                    'description' => new Field\TextField('description'),
+                    'title' => new Field\StringField('title'),
+                    'description' => new Field\StringField('description'),
                     'media' => new Field\IntegerField('media', multiple: true),
                 ],
                 'embed' => [
-                    'title' => new Field\TextField('title'),
-                    'media' => new Field\TextField('media'),
+                    'title' => new Field\StringField('title'),
+                    'media' => new Field\StringField('media'),
                 ],
             ], multiple: true),
             'created' => new Field\DateTimeField('created'),
             'commentsCount' => new Field\IntegerField('commentsCount'),
             'rating' => new Field\FloatField('rating'),
             'comments' => new Field\ObjectField('comments', [
-                'email' => new Field\TextField('email'),
-                'text' => new Field\TextField('title'),
+                'email' => new Field\StringField('email'),
+                'text' => new Field\StringField('title'),
             ], multiple: true),
-            'tags' => new Field\TextField('comments', multiple: true),
+            'tags' => new Field\StringField('comments', multiple: true),
             'categoryIds' => new Field\IntegerField('comments', multiple: true),
         ];
 
         $simpleFields = [
             'id' => new Field\IdentifierField('id'),
-            'title' => new Field\TextField('title'),
+            'title' => new Field\StringField('title'),
         ];
 
         $complexIndex = new Index($prefix . 'news', $complexFields);
